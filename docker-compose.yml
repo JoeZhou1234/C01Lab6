@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile_frontend
       target: frontend
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/quirknotes_frontend:latest
+    image: ${ secrets.DOCKERHUB_USERNAME }/quirknotes_frontend:latest
     environment:
       - ENV=Docker
 
@@ -13,7 +13,7 @@ services:
       context: .
       dockerfile: Dockerfile_backend
       target: backend
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/quirknotes_backend:latest
+    image: ${ secrets.DOCKERHUB_USERNAME }/quirknotes_backend:latest
     ports:
       - "4000:4000"
     environment:
