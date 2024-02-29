@@ -19,11 +19,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Docker images frontend
+      - name: Build Docker image frontend
         run: docker-compose build --services frontend --build-arg DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
 
-      - name: Build Docker images backend
+      - name: Push Docker image frontend to Docker Hub
+        run: docker-compose push --services frontend --build-arg DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+
+      - name: Build Docker image backend
         run: docker-compose build --services backend --build-arg DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
 
-      - name: Push Docker images to Docker Hub
-        run: docker-compose push
+      - name: Push Docker image backend to Docker Hub
+        run: docker-compose push --services backend --build-arg DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
