@@ -19,8 +19,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Docker images for frontend and backend
-        run: docker-compose build
+      - name: Build Docker image frontend
+        run: docker-compose build --service frontend
 
-      - name: Push Docker images for frontend and backend
-        run: docker-compose push
+      - name: Push Docker image frontend to Docker Hub
+        run: docker-compose push --service frontend
+
+      - name: Build Docker image backend
+        run: docker-compose build --service backend
+
+      - name: Push Docker image backend to Docker Hub
+        run: docker-compose push --service backend
