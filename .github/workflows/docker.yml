@@ -23,10 +23,10 @@ jobs:
         run: docker-compose build --service frontend
 
       - name: Push Docker image frontend to Docker Hub
-        run: docker-compose push --service frontend --auto-create
+        run: docker-compose push --service frontend
 
       - name: Build Docker image backend
         run: docker-compose build --service backend
 
       - name: Push Docker image backend to Docker Hub
-        run: docker-compose push --service backend --auto-create
+        run: docker-compose push --service backend
