@@ -5,8 +5,6 @@ services:
       dockerfile: Dockerfile_frontend
       target: frontend
     image: 'xingyujoezhou/quirknotes_frontend:latest'
-    ports:
-      - "3000:3000"
     environment:
       - ENV=Docker
 
